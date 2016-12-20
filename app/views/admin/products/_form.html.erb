@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        
+        <div class="col-sm-8 well">
+            <%= simple_form_for([:admin, @product]) do |f| %>
+                <%= f.error_notification %>
+                <div class="form-inputs">
+                    <%= f.input :name %>
+                    <%= f.input :current_price, input_html: {min: 0} %>
+                    <%= f.input :quantity, input_html: {min: 0} %>
+                    <%= f.input :description %>
+                    <%= f.association :category, collection: Category.order(:name) %>
+                    <%= f.association :brand %>
+                    <%= f.input :avatar, as: :file, label: "Upload a New Product Image" %>
+                    <% if @product.avatar.exists? %>
+                        <%= label_tag "Current Image" %>
+                        <p><%= image_tag @product.avatar.url(:thumb) %></p>
+                        <br>
+                    <% end %>
+                </div>
+
+                <div class="form-actions">
+                    <%= f.button :submit, class:"btn btn-info" %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="col-sm-2"></div>
+    </div>
+</div>

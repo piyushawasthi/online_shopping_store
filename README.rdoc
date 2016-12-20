@@ -1,0 +1,61 @@
+== Steps
+
+* git clone git@github.com:piyushawasthi/online_shopping_store.git
+
+* rake db:create
+
+* rake db:migrate
+
+* rake db:seed
+
+* rails s (run rails app)
+
+
+== Description
+
+== Actors
+
+* Admin User
+
+* Customer
+
+
+== Use cases Login/Logout
+
+* Admin should be able to login/logout to the application
+
+* Customer should be able to login/logout to the application
+
+* Authentication could be username/password (usage Oauth is a plus)
+
+== Use cases Admin
+
+* Admin should be able manage Inventory. Inventory is nothing but a database of the products/items.
+
+* Admin should be able manage Inventory by CRUD operations
+
+* Each Item has specific quantity available
+
+* Admin should be able to manage final order placed by the customer.
+
+== Use cases Customer
+
+* Customer should be able to view all items present in the store
+
+* Customer can add or remove items from the Shopping cart with quantity
+
+* Customer can view his Shopping cart
+
+* Customer should be able to place an order on the selected items present in the cart
+
+== Use cases Cart Validation
+
+* Customer can add only the items present in the inventory
+
+* At least one item should be present while placing the order
+
+* After final order is placed inventory should be updated
+
+
+
+== Thanks

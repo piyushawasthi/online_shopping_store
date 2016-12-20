@@ -1,0 +1,41 @@
+<!-- closes container div in application.html-->
+</div>
+
+<div class="jumbotron">
+  <div  class="container">
+    <% if @feature_products.present? %>
+      <h1>New Arrival</h1>
+    <% end %>
+  </div>
+</div> <!-- ends jumbotron -->
+
+
+<div class="container">
+  <div class="row">
+    <% @feature_products.each do |product| %>
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= image_tag product.avatar.url(:medium), class:"img-responsive img-rounded " %>
+            <span class="pull-right">
+              <h5><%= number_to_currency product.current_price %></h5>
+            </span>
+            <h5><%= product.name %></h5>
+            <span class="pull-right">
+            <%= link_to "visit the shop >>", shop_path, class:"btn btn-danger btn-xs" %>
+            </span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% unless @feature_products.present? %>
+  <div class="no-product">
+    <h1>No Product!! </h1> 
+    <h2>Please login from admin to add new product</h2>
+  </div>
+<% end %>
+<!-- to reopen container div in application.html-->
+<div>
